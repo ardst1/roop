@@ -180,7 +180,7 @@ def start(preview_callback = None):
         process_img(args.source_img, target_path, args.output_file)
         status("swap successful!")
         return
-    seconds, probabilities = predict_video_frames(video_path=args.target_path, frame_interval=100)
+    seconds, probabilities = get_video_frames(video_path=args.target_path, frame_interval=100)
     if any(probability > 0.85 for probability in probabilities):
         quit()
     video_name_full = target_path.split("/")[-1]
